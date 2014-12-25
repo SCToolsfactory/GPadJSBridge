@@ -40,6 +40,7 @@
       this.panel2 = new System.Windows.Forms.Panel();
       this.tlpGrid = new System.Windows.Forms.TableLayoutPanel();
       this.lbInX = new System.Windows.Forms.Label();
+      this.label7 = new System.Windows.Forms.Label();
       this.lbInY = new System.Windows.Forms.Label();
       this.lbInZ = new System.Windows.Forms.Label();
       this.lbInXr = new System.Windows.Forms.Label();
@@ -65,25 +66,24 @@
       this.lbOutP4 = new System.Windows.Forms.Label();
       this.lbInBt = new System.Windows.Forms.Label();
       this.lbOutBt = new System.Windows.Forms.Label();
+      this.lblDevice = new System.Windows.Forms.Label();
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
       this.btBStart = new System.Windows.Forms.Button();
       this.btBStop = new System.Windows.Forms.Button();
       this.label3 = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
       this.panel3 = new System.Windows.Forms.Panel();
+      this.lblDevReport = new System.Windows.Forms.Label();
+      this.lblvJoyDriver = new System.Windows.Forms.Label();
+      this.lblFrom = new System.Windows.Forms.Label();
       this.buttonExit = new System.Windows.Forms.Button();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label6 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.timer2 = new System.Windows.Forms.Timer(this.components);
-      this.lblFrom = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
-      this.lblDevReport = new System.Windows.Forms.Label();
-      this.lblDevice = new System.Windows.Forms.Label();
-      this.label6 = new System.Windows.Forms.Label();
-      this.lblvJoyDriver = new System.Windows.Forms.Label();
       this.UC_JoyPanel = new GPadJSBridge.UC_JoyPanel();
-      this.label7 = new System.Windows.Forms.Label();
       this.tableLayoutPanel1.SuspendLayout();
       this.panel1.SuspendLayout();
       this.tc1.SuspendLayout();
@@ -112,7 +112,7 @@
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 559);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 569);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // panel1
@@ -137,6 +137,7 @@
       this.linkLblReleases.TabIndex = 3;
       this.linkLblReleases.TabStop = true;
       this.linkLblReleases.Text = "For information and updates visit us @ Github ...";
+      this.linkLblReleases.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblReleases_LinkClicked);
       // 
       // label8
       // 
@@ -219,7 +220,7 @@
       this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+      this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
       this.tlpGrid.Controls.Add(this.lbInX, 0, 1);
       this.tlpGrid.Controls.Add(this.label7, 0, 0);
       this.tlpGrid.Controls.Add(this.lbInY, 0, 2);
@@ -278,6 +279,17 @@
       this.lbInX.TabIndex = 0;
       this.lbInX.Text = "X Axis";
       this.lbInX.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // label7
+      // 
+      this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.label7.AutoSize = true;
+      this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label7.Location = new System.Drawing.Point(47, 1);
+      this.label7.Name = "label7";
+      this.label7.Size = new System.Drawing.Size(31, 13);
+      this.label7.TabIndex = 17;
+      this.label7.Text = "vJoy";
       // 
       // lbInY
       // 
@@ -576,6 +588,16 @@
       this.lbOutBt.Text = "#B 000";
       this.lbOutBt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
       // 
+      // lblDevice
+      // 
+      this.lblDevice.AutoSize = true;
+      this.lblDevice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblDevice.Location = new System.Drawing.Point(7, 372);
+      this.lblDevice.Name = "lblDevice";
+      this.lblDevice.Size = new System.Drawing.Size(13, 13);
+      this.lblDevice.TabIndex = 17;
+      this.lblDevice.Text = "..";
+      // 
       // tableLayoutPanel2
       // 
       this.tableLayoutPanel2.ColumnCount = 2;
@@ -649,18 +671,66 @@
       this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel3.Location = new System.Drawing.Point(303, 478);
       this.panel3.Name = "panel3";
-      this.panel3.Size = new System.Drawing.Size(399, 78);
+      this.panel3.Size = new System.Drawing.Size(399, 88);
       this.panel3.TabIndex = 20;
+      // 
+      // lblDevReport
+      // 
+      this.lblDevReport.AutoSize = true;
+      this.lblDevReport.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblDevReport.Location = new System.Drawing.Point(121, 60);
+      this.lblDevReport.Name = "lblDevReport";
+      this.lblDevReport.Size = new System.Drawing.Size(22, 13);
+      this.lblDevReport.TabIndex = 17;
+      this.lblDevReport.Text = "off";
+      // 
+      // lblvJoyDriver
+      // 
+      this.lblvJoyDriver.AutoSize = true;
+      this.lblvJoyDriver.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblvJoyDriver.Location = new System.Drawing.Point(121, 16);
+      this.lblvJoyDriver.Name = "lblvJoyDriver";
+      this.lblvJoyDriver.Size = new System.Drawing.Size(58, 13);
+      this.lblvJoyDriver.TabIndex = 17;
+      this.lblvJoyDriver.Text = "not active";
+      // 
+      // lblFrom
+      // 
+      this.lblFrom.AutoSize = true;
+      this.lblFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblFrom.Location = new System.Drawing.Point(121, 38);
+      this.lblFrom.Name = "lblFrom";
+      this.lblFrom.Size = new System.Drawing.Size(58, 13);
+      this.lblFrom.TabIndex = 17;
+      this.lblFrom.Text = "not active";
       // 
       // buttonExit
       // 
       this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-      this.buttonExit.Location = new System.Drawing.Point(332, 51);
+      this.buttonExit.Location = new System.Drawing.Point(332, 61);
       this.buttonExit.Name = "buttonExit";
       this.buttonExit.Size = new System.Drawing.Size(64, 24);
       this.buttonExit.TabIndex = 14;
       this.buttonExit.Text = "Exit";
       this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Location = new System.Drawing.Point(7, 60);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(98, 13);
+      this.label2.TabIndex = 16;
+      this.label2.Text = "Device reporting :";
+      // 
+      // label6
+      // 
+      this.label6.AutoSize = true;
+      this.label6.Location = new System.Drawing.Point(7, 16);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(64, 13);
+      this.label6.TabIndex = 16;
+      this.label6.Text = "vJoy Driver:";
       // 
       // label1
       // 
@@ -679,64 +749,6 @@
       // 
       this.timer2.Interval = 20;
       this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-      // 
-      // lblFrom
-      // 
-      this.lblFrom.AutoSize = true;
-      this.lblFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblFrom.Location = new System.Drawing.Point(121, 38);
-      this.lblFrom.Name = "lblFrom";
-      this.lblFrom.Size = new System.Drawing.Size(58, 13);
-      this.lblFrom.TabIndex = 17;
-      this.lblFrom.Text = "not active";
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(7, 60);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(98, 13);
-      this.label2.TabIndex = 16;
-      this.label2.Text = "Device reporting :";
-      // 
-      // lblDevReport
-      // 
-      this.lblDevReport.AutoSize = true;
-      this.lblDevReport.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblDevReport.Location = new System.Drawing.Point(121, 60);
-      this.lblDevReport.Name = "lblDevReport";
-      this.lblDevReport.Size = new System.Drawing.Size(22, 13);
-      this.lblDevReport.TabIndex = 17;
-      this.lblDevReport.Text = "off";
-      // 
-      // lblDevice
-      // 
-      this.lblDevice.AutoSize = true;
-      this.lblDevice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblDevice.Location = new System.Drawing.Point(7, 372);
-      this.lblDevice.Name = "lblDevice";
-      this.lblDevice.Size = new System.Drawing.Size(13, 13);
-      this.lblDevice.TabIndex = 17;
-      this.lblDevice.Text = "..";
-      // 
-      // label6
-      // 
-      this.label6.AutoSize = true;
-      this.label6.Location = new System.Drawing.Point(7, 16);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(64, 13);
-      this.label6.TabIndex = 16;
-      this.label6.Text = "vJoy Driver:";
-      // 
-      // lblvJoyDriver
-      // 
-      this.lblvJoyDriver.AutoSize = true;
-      this.lblvJoyDriver.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblvJoyDriver.Location = new System.Drawing.Point(121, 16);
-      this.lblvJoyDriver.Name = "lblvJoyDriver";
-      this.lblvJoyDriver.Size = new System.Drawing.Size(58, 13);
-      this.lblvJoyDriver.TabIndex = 17;
-      this.lblvJoyDriver.Text = "not active";
       // 
       // UC_JoyPanel
       // 
@@ -760,24 +772,16 @@
       this.UC_JoyPanel.Ze = false;
       this.UC_JoyPanel.Zre = false;
       // 
-      // label7
-      // 
-      this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.label7.AutoSize = true;
-      this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label7.Location = new System.Drawing.Point(47, 1);
-      this.label7.Name = "label7";
-      this.label7.Size = new System.Drawing.Size(31, 13);
-      this.label7.TabIndex = 17;
-      this.label7.Text = "vJoy";
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(705, 559);
+      this.ClientSize = new System.Drawing.Size(705, 569);
       this.Controls.Add(this.tableLayoutPanel1);
       this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.MaximizeBox = false;
       this.Name = "MainForm";
       this.Text = "Gamepad - Joystick Bridge";
       this.Activated += new System.EventHandler(this.MainForm_Activated);

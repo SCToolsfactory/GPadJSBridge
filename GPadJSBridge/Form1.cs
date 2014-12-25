@@ -126,8 +126,9 @@ namespace GPadJSBridge
       //      this.Size = m_AppSettings.FormSize;
       //      this.Location = m_AppSettings.FormLocation;
 
-      String version = Application.ProductVersion;  // get the version information
-      lblTitle.Text += " - V " + version.Substring( 0, version.IndexOf( ".", version.IndexOf( "." ) + 1 ) ); // get the first two elements
+      String version = Application.ProductVersion;  // get the version information 
+      //      lblTitle.Text += " - V " + version.Substring( 0, version.IndexOf( ".", version.IndexOf( "." ) + 1 ) ); // get the first two elements (NON BETA)
+            lblTitle.Text += " - beta " + version; // BETA naming
       log.InfoFormat( "Application Version: {0}", version.ToString( ) );
 
       // tooltips where needed
@@ -346,7 +347,7 @@ namespace GPadJSBridge
           SharpDX.DirectInput.Joystick jsDevice = null;
           SharpDX.XInput.Controller gpDevice = null;
           JoystickCls js = null; GamepadCls gs = null;
-          if ( instance.Usage == SharpDX.Multimedia.UsageId.GenericGamepad ) {
+          if ( false && (instance.Usage == SharpDX.Multimedia.UsageId.GenericGamepad ) ) { // DON'T
             // detect Gamepad only if the user wishes to do so
             for ( SharpDX.XInput.UserIndex i =  SharpDX.XInput.UserIndex.One; i < SharpDX.XInput.UserIndex.Four; i++ ) {
               gpDevice = new SharpDX.XInput.Controller( i );
@@ -528,6 +529,12 @@ namespace GPadJSBridge
         lblDevice.Text = devName;
         InitControls( );
       }
+    }
+
+    private void linkLblReleases_LinkClicked( object sender, LinkLabelLinkClickedEventArgs e )
+    {
+      this.linkLblReleases.LinkVisited = true;
+      System.Diagnostics.Process.Start( c_GithubLink );
     }
 
 
